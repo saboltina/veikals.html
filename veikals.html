@@ -13,8 +13,8 @@
             background-color: #f0f0f0;
         }
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            max-width: 600px;
+            margin: auto;
             padding: 20px;
         }
         .product {
@@ -25,16 +25,33 @@
             margin-bottom: 20px;
             overflow: hidden; /* To prevent image overflow */
         }
-        .product img {
-            max-width: 100%;
-            height: auto;
-        }
+			img {
+            width: 400px;
+            height: 400px;}
         .product h2 {
             margin-top: 0;
         }
         .product p {
             margin-bottom: 0;
         }
+	 .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #ff5e63;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: blue;
+        }
+        #response-images {
+            margin-top: 200px;
+		
     </style>
 </head>
 <body>
@@ -48,7 +65,8 @@
 			a comfy true-to-size fit, and multiple colors to choose 
 			from - these hoodies provide a cozy wearing experience packed with style.</p>
             <p>$49.99</p>
-            <button>Add to Cart</button>
+            <button class="button" onclick="showResponse('yes')">Add to Cart</button>
+
         </div>
         <div class="product">
             <img src="https://images.printify.com/mockup/65b6654f5264adb4f5094784/34099/101003?s=608&t=1706452321000" alt="Product 2">
@@ -57,9 +75,24 @@
 			a comfy true-to-size fit, and multiple colors to choose 
 			from - these hoodies provide a cozy wearing experience packed with style.</p>
             <p>$49.99</p>
-            <button>Add to Cart</button>
-        </div>
-        <!-- More product listings can be added here -->
+           <button class="button" onclick="showResponse('no')">Add to Cart</button>
+		   </div>
+        
+	  <div id="response-images" style="display: none;">
+        <img id="yes-image" src="https://th.bing.com/th/id/OIP.qEU9JhsTvv2hZlnIuHKmtgHaE8?rs=1&pid=ImgDetMain" alt="Yes">
+        <img id="no-image" src="https://unbounce.com/photos/show-me-the-money-meme.png" alt="No">
     </div>
+	<script>
+        function showResponse(response) {
+            document.getElementById('response-images').style.display = 'block';
+            if (response === 'yes') {
+                document.getElementById('yes-image').style.display = 'block';
+                document.getElementById('no-image').style.display = 'none';
+            } else {
+                document.getElementById('yes-image').style.display = 'none';
+                document.getElementById('no-image').style.display = 'block';
+            }
+        }
+    </script>
 </body>
 </html>
